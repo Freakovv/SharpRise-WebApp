@@ -19,9 +19,6 @@ public partial class SharpRiseContext : DbContext
 
     public virtual DbSet<Teacher> Teachers { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("Server=FREAKOVV\\SQLEXPRESS;Database=SharpRise_beta;Trusted_Connection=True;TrustServerCertificate=True;");
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Group>(entity =>
