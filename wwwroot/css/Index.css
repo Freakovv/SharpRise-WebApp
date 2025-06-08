@@ -1,0 +1,70 @@
+:where([class^="ri-"])::before {
+  content: "\f3c2";
+}
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #0d1117;
+  color: #c9d1d9;
+}
+.hero-gradient {
+  background: linear-gradient(
+    90deg,
+    rgba(13, 17, 23, 0.95) 0%,
+    rgba(13, 17, 23, 0.85) 50%,
+    rgba(13, 17, 23, 0) 100%
+  );
+}
+.disabled-button {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+.code-bg {
+  background: linear-gradient(45deg, #0d1117, #161b22);
+}
+.glow {
+  position: absolute;
+  background: radial-gradient(
+    circle at center,
+    rgba(155, 79, 150, 0.15) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+}
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+.typing-cursor {
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #9b4f96;
+  }
+}
+.grid-pattern {
+  background-image: radial-gradient(
+    rgba(155, 79, 150, 0.1) 1px,
+    transparent 1px
+  );
+  background-size: 30px 30px;
+}
+.hover-glow:hover {
+  box-shadow: 0 0 30px rgba(155, 79, 150, 0.2);
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}

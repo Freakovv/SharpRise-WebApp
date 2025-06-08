@@ -1,49 +1,178 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - SharpRise_WebApp</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/SharpRise_WebApp.styles.css" asp-append-version="true" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - SharpRise</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#9B4F96',
+                        secondary: '#6D4C9F'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="~/css/Index.css">
 </head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">SharpRise_WebApp</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+<body class="bg-[#0D1117]">
+    <!-- Навигация -->
+    <header class="fixed top-0 left-0 right-0 bg-[#161B22] border-b border-[#30363D] z-50">
+        <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center">
+                <a href="#" class="text-3xl font-['JetBrains_Mono'] text-primary tracking-tight">&lt;SharpRise/&gt;</a>
+                <div class="hidden md:flex ml-12 space-x-8">
+                    <a href="#" class="text-gray-300 hover:text-primary font-medium">Обучение</a>
+                    <a href="#" class="text-gray-300 hover:text-primary font-medium">Группы</a>
+                    <a href="#" class="text-gray-300 hover:text-primary font-medium">Задачи</a>
+                    <a href="#" class="text-gray-300 hover:text-primary font-medium">Документация</a>
                 </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="#" class="text-gray-300 hover:text-primary font-medium">Войти</a>
+                <button class="bg-primary text-white px-5 py-2 !rounded-button whitespace-nowrap hover:bg-opacity-90 transition-all">Регистрация</button>
+                <button class="md:hidden w-10 h-10 flex items-center justify-center text-gray-700">
+                    <i class="ri-menu-line ri-lg"></i>
+                </button>
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - SharpRise_WebApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+    @RenderBody()
+<!-- Подвал -->
+<footer class="bg-gray-900 text-white py-12">
+<div class="container mx-auto px-6">
+<div class="grid md:grid-cols-4 gap-8 mb-8">
+<div>
+<a href="#" class="text-2xl font-['Pacifico'] text-white mb-4 block">SharpRise</a>
+<p class="text-gray-400 mt-2">Платформа для эффективного изучения C# с практическими задачами и групповым обучением.</p>
+</div>
+<div>
+<h3 class="text-lg font-semibold mb-4">Платформа</h3>
+<ul class="space-y-2">
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Обучение</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Группы</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Задачи</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Документация</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-lg font-semibold mb-4">Компания</h3>
+<ul class="space-y-2">
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">О нас</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Карьера</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Блог</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Контакты</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-lg font-semibold mb-4">Связь с нами</h3>
+<div class="flex space-x-4 mb-4">
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+<i class="ri-telegram-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+<i class="ri-vk-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+<i class="ri-github-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors">
+<i class="ri-youtube-fill"></i>
+</a>
+</div>
+<p class="text-gray-400">info@sharprise.ru</p>
+</div>
+</div>
+<div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-400 text-sm mb-4 md:mb-0">© 2025 SharpRise. Все права защищены.</p>
+<div class="flex space-x-6">
+<a href="#" class="text-gray-400 hover:text-white text-sm">Условия использования</a>
+<a href="#" class="text-gray-400 hover:text-white text-sm">Политика конфиденциальности</a>
+</div>
+</div>
+</div>
+</footer>
+<script id="mobileMenuScript">
+document.addEventListener('DOMContentLoaded', function() {
+const menuButton = document.querySelector('.ri-menu-line').parentElement;
+const mobileMenu = document.createElement('div');
+mobileMenu.className = 'fixed inset-0 bg-white z-50 flex flex-col p-6 transform translate-x-full transition-transform duration-300 ease-in-out';
+mobileMenu.innerHTML = `
+<div class="flex justify-between items-center mb-8">
+<a href="#" class="text-3xl font-['JetBrains_Mono'] text-primary tracking-tight">&lt;SharpRise/&gt;</a>
+<button class="w-10 h-10 flex items-center justify-center text-gray-700">
+<i class="ri-close-line ri-lg"></i>
+</button>
+</div>
+<div class="flex flex-col space-y-6">
+<a href="#" class="text-gray-700 hover:text-primary font-medium text-lg">Обучение</a>
+<a href="#" class="text-gray-700 hover:text-primary font-medium text-lg">Группы</a>
+<a href="#" class="text-gray-700 hover:text-primary font-medium text-lg">Задачи</a>
+<a href="#" class="text-gray-700 hover:text-primary font-medium text-lg">Документация</a>
+</div>
+<div class="mt-auto flex flex-col space-y-4">
+<a href="#" class="text-center text-gray-800 hover:text-primary font-medium py-2">Войти</a>
+<button class="bg-primary text-white px-5 py-3 !rounded-button whitespace-nowrap hover:bg-opacity-90 transition-all">Регистрация</button>
+</div>
+`;
+document.body.appendChild(mobileMenu);
+menuButton.addEventListener('click', function() {
+mobileMenu.classList.remove('translate-x-full');
+document.body.style.overflow = 'hidden';
+});
+const closeButton = mobileMenu.querySelector('.ri-close-line').parentElement;
+closeButton.addEventListener('click', function() {
+mobileMenu.classList.add('translate-x-full');
+document.body.style.overflow = '';
+});
+});
+</script>
+<script id="disabledButtonScript">
+document.addEventListener('DOMContentLoaded', function() {
+const disabledButton = document.querySelector('.disabled-button');
+disabledButton.addEventListener('click', function(e) {
+e.preventDefault();
+const tooltip = document.createElement('div');
+tooltip.className = 'absolute bg-gray-800 text-white text-sm px-3 py-1 rounded pointer-events-none opacity-0 transition-opacity';
+tooltip.style.bottom = 'calc(100% + 10px)';
+tooltip.style.left = '50%';
+tooltip.style.transform = 'translateX(-50%)';
+tooltip.textContent = 'Десктопное приложение пока в разработке';
+this.style.position = 'relative';
+this.appendChild(tooltip);
+setTimeout(() => {
+tooltip.classList.remove('opacity-0');
+}, 10);
+setTimeout(() => {
+tooltip.classList.add('opacity-0');
+setTimeout(() => {
+tooltip.remove();
+}, 300);
+}, 2000);
+});
+});
+</script>
 </body>
 </html>

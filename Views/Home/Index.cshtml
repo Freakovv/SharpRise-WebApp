@@ -1,8 +1,307 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+@{
+    ViewData["Title"] = "Изучайте C# в сообществе единомышленников";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<!-- Главный баннер -->
+<section class="min-h-screen pt-24 relative overflow-hidden grid-pattern">
+<div class="glow w-[800px] h-[800px] top-[-400px] left-[-200px]"></div>
+<div class="glow w-[600px] h-[600px] bottom-[-200px] right-[-100px]"></div>
+<div class="container mx-auto px-6 py-20 relative z-10">
+<div class="flex flex-col lg:flex-row items-center gap-12">
+<div class="w-full lg:w-1/2">
+<div class="mb-8 inline-flex items-center gap-2 text-primary">
+<i class="ri-code-s-slash-line"></i>
+<span class="text-sm font-medium">LEARN.CODE.GROW</span>
 </div>
+<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+Создавайте будущее с
+<span class="text-primary relative">
+C#
+<div class="absolute -bottom-2 left-0 w-full h-1 bg-primary opacity-30"></div>
+</span>
+</h1>
+<p class="text-lg text-gray-400 mb-8 leading-relaxed">Погрузитесь в мир современной разработки через интерактивное обучение, реальные проекты и поддержку сообщества.</p>
+<div class="flex flex-col sm:flex-row gap-4 mb-12">
+<button class="bg-primary text-white px-8 py-3 !rounded-button whitespace-nowrap font-medium hover:bg-opacity-90 transition-all flex items-center gap-2">
+<span>Начать обучение</span>
+<i class="ri-arrow-right-line"></i>
+</button>
+<button class="bg-[#21262D] text-white px-8 py-3 !rounded-button whitespace-nowrap font-medium flex items-center justify-center gap-2 hover:bg-[#2d333b] transition-all disabled-button">
+<i class="ri-download-line"></i>
+<span>Скачать приложение</span>
+<span class="text-xs bg-primary/20 text-primary px-2 py-0.5 rounded-full">Скоро</span>
+</button>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex -space-x-3">
+<div class="w-10 h-10 rounded-full bg-[#21262D] border-2 border-[#0D1117] flex items-center justify-center text-sm text-gray-400">
+    <span class="text-primary relative">0
+</div>
+</div>
+
+<div class="text-sm text-gray-400">
+Присоединились к сообществу<br>за последний месяц
+</div>
+</div>
+</div>
+<div class="w-full lg:w-1/2 relative">
+<div class="code-bg p-8 rounded-lg border border-[#30363D] floating">
+<div class="flex items-center gap-2 mb-4">
+<div class="w-3 h-3 rounded-full bg-[#FF5F56]"></div>
+<div class="w-3 h-3 rounded-full bg-[#FFBD2E]"></div>
+<div class="w-3 h-3 rounded-full bg-[#27C93F]"></div>
+</div>
+<div class="font-mono text-sm">
+<div class="text-gray-400">// Welcome to SharpRise</div>
+<div class="text-primary">public class</div>
+<div class="text-white">Program</div>
+<div class="text-white">{</div>
+<div class="ml-4">
+<span class="text-primary">static void</span>
+<span class="text-white">Main()</span>
+</div>
+<div class="text-white ml-4">{</div>
+<div class="ml-8 text-gray-400 typing-cursor" style="border-right: 2px solid">Console.WriteLine("Hello, Developer!");</div>
+<div class="text-white ml-4">}</div>
+<div class="text-white">}</div>
+</div>
+</div>
+<div class="absolute -top-6 -right-6 w-24 h-24 bg-primary/10 rounded-full blur-2xl"></div>
+<div class="absolute -bottom-6 -left-6 w-32 h-32 bg-primary/10 rounded-full blur-2xl"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Преимущества -->
+<section class="py-20 bg-[#161B22] relative overflow-hidden">
+<div class="absolute inset-0 bg-[url('https://readdy.ai/api/search-image?query=abstract%20geometric%20pattern%20with%20purple%20and%20dark%20blue%20gradient%2C%20minimalist%20tech%20background&width=1920&height=1080&seq=10&orientation=landscape')] opacity-5"></div>
+<div class="container mx-auto px-6 relative">
+<div class="flex flex-col items-center mb-16">
+<span class="text-primary font-medium mb-4">НАШИ ПРЕИМУЩЕСТВА</span>
+<h2 class="text-3xl md:text-4xl font-bold text-center relative">
+Почему выбирают SharpRise
+<div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-primary"></div>
+</h2>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="group bg-gradient-to-br from-[#21262D] to-[#1a1f24] p-1 rounded-lg hover:from-primary/20 hover:to-primary/5 transition-all duration-500">
+<div class="bg-[#21262D] p-8 rounded-lg h-full relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-all duration-500"></div>
+<div class="relative">
+<div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-2xl mb-6 transform group-hover:rotate-6 transition-transform duration-500">
+<i class="ri-team-line ri-xl text-primary"></i>
+</div>
+<h3 class="text-xl font-semibold mb-4 text-white">Групповое обучение</h3>
+<p class="text-gray-400">Решайте задачи и изучайте материал вместе с другими разработчиками. Обменивайтесь опытом и мотивируйте друг друга.</p>
+<div class="absolute bottom-0 right-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+<i class="ri-arrow-right-up-line text-primary/30 text-4xl"></i>
+</div>
+</div>
+</div>
+</div>
+
+<div class="group bg-gradient-to-br from-[#21262D] to-[#1a1f24] p-1 rounded-lg hover:from-primary/20 hover:to-primary/5 transition-all duration-500">
+<div class="bg-[#21262D] p-8 rounded-lg h-full relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-all duration-500"></div>
+<div class="relative">
+<div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-2xl mb-6 transform group-hover:rotate-6 transition-transform duration-500">
+<i class="ri-code-box-line ri-xl text-primary"></i>
+</div>
+<h3 class="text-xl font-semibold mb-4 text-white">Практические задачи</h3>
+<p class="text-gray-400">Более 1000 практических задач разного уровня сложности в стиле CodeWars и LeetCode для закрепления навыков.</p>
+<div class="absolute bottom-0 right-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+<i class="ri-arrow-right-up-line text-primary/30 text-4xl"></i>
+</div>
+</div>
+</div>
+</div>
+
+<div class="group bg-gradient-to-br from-[#21262D] to-[#1a1f24] p-1 rounded-lg hover:from-primary/20 hover:to-primary/5 transition-all duration-500">
+<div class="bg-[#21262D] p-8 rounded-lg h-full relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-all duration-500"></div>
+<div class="relative">
+<div class="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-2xl mb-6 transform group-hover:rotate-6 transition-transform duration-500">
+<i class="ri-road-map-line ri-xl text-primary"></i>
+</div>
+<h3 class="text-xl font-semibold mb-4 text-white">Индивидуальная программа</h3>
+<p class="text-gray-400">Адаптивная система обучения, которая подстраивается под ваш уровень знаний и темп обучения.</p>
+<div class="absolute bottom-0 right-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+<i class="ri-arrow-right-up-line text-primary/30 text-4xl"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Как это работает -->
+<section class="py-20 relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent"></div>
+<div class="container mx-auto px-6 relative">
+<div class="flex flex-col items-center mb-16">
+<span class="text-primary font-medium mb-4">ПРОЦЕСС ОБУЧЕНИЯ</span>
+<h2 class="text-3xl md:text-4xl font-bold text-center relative">
+Как это работает
+<div class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-primary"></div>
+</h2>
+<p class="text-gray-400 text-center max-w-2xl mx-auto mt-8">Простой путь от новичка до профессионала C#</p>
+</div>
+
+<div class="relative">
+<div class="absolute top-1/2 left-0 w-full h-1 bg-gradient-to-r from-primary/10 via-primary/20 to-primary/10 transform -translate-y-1/2 hidden md:block"></div>
+<div class="grid md:grid-cols-4 gap-8 relative">
+<div class="group">
+<div class="relative z-10 bg-[#21262D] p-8 rounded-lg border border-[#30363D] hover:border-primary/50 transition-all duration-500 transform hover:-translate-y-2">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-all duration-500"></div>
+<div class="w-20 h-20 flex items-center justify-center bg-primary/10 rounded-2xl mx-auto mb-6 relative">
+<span class="text-2xl font-bold text-primary group-hover:scale-110 transition-transform duration-500">1</span>
+<div class="absolute inset-0 border-2 border-primary/20 rounded-2xl transform rotate-45 group-hover:rotate-90 transition-transform duration-500"></div>
+</div>
+<h3 class="text-xl font-semibold mb-3 text-white text-center">Регистрация</h3>
+<p class="text-gray-400 text-center">Создайте аккаунт и пройдите тест на определение уровня знаний</p>
+</div>
+</div>
+
+<div class="group">
+<div class="relative z-10 bg-[#21262D] p-8 rounded-lg border border-[#30363D] hover:border-primary/50 transition-all duration-500 transform hover:-translate-y-2">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-all duration-500"></div>
+<div class="w-20 h-20 flex items-center justify-center bg-primary/10 rounded-2xl mx-auto mb-6 relative">
+<span class="text-2xl font-bold text-primary group-hover:scale-110 transition-transform duration-500">2</span>
+<div class="absolute inset-0 border-2 border-primary/20 rounded-2xl transform rotate-45 group-hover:rotate-90 transition-transform duration-500"></div>
+</div>
+<h3 class="text-xl font-semibold mb-3 text-white text-center">Выбор формата</h3>
+<p class="text-gray-400 text-center">Решите, хотите ли вы учиться самостоятельно или в группе (можно изменить позже)</p>
+</div>
+</div>
+
+<div class="group">
+<div class="relative z-10 bg-[#21262D] p-8 rounded-lg border border-[#30363D] hover:border-primary/50 transition-all duration-500 transform hover:-translate-y-2">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-all duration-500"></div>
+<div class="w-20 h-20 flex items-center justify-center bg-primary/10 rounded-2xl mx-auto mb-6 relative">
+<span class="text-2xl font-bold text-primary group-hover:scale-110 transition-transform duration-500">3</span>
+<div class="absolute inset-0 border-2 border-primary/20 rounded-2xl transform rotate-45 group-hover:rotate-90 transition-transform duration-500"></div>
+</div>
+<h3 class="text-xl font-semibold mb-3 text-white text-center">Обучение</h3>
+<p class="text-gray-400 text-center">Изучайте теорию и решайте практические задачи по C#</p>
+</div>
+</div>
+
+<div class="group">
+<div class="relative z-10 bg-[#21262D] p-8 rounded-lg border border-[#30363D] hover:border-primary/50 transition-all duration-500 transform hover:-translate-y-2">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-all duration-500"></div>
+<div class="w-20 h-20 flex items-center justify-center bg-primary/10 rounded-2xl mx-auto mb-6 relative">
+<span class="text-2xl font-bold text-primary group-hover:scale-110 transition-transform duration-500">4</span>
+<div class="absolute inset-0 border-2 border-primary/20 rounded-2xl transform rotate-45 group-hover:rotate-90 transition-transform duration-500"></div>
+</div>
+<h3 class="text-xl font-semibold mb-3 text-white text-center">Достижения</h3>
+<p class="text-gray-400 text-center">Отслеживайте свой прогресс и получайте сертификаты</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Статистика -->
+<section class="py-20 bg-primary text-white">
+<div class="container mx-auto px-6">
+<h2 class="text-3xl md:text-4xl font-bold text-center mb-16">SharpRise в цифрах</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="text-center">
+<div class="text-4xl md:text-5xl font-bold mb-2">15K+</div>
+<p class="text-white text-opacity-80">Активных пользователей</p>
+</div>
+<div class="text-center">
+<div class="text-4xl md:text-5xl font-bold mb-2">1M+</div>
+<p class="text-white text-opacity-80">Решенных задач</p>
+</div>
+<div class="text-center">
+<div class="text-4xl md:text-5xl font-bold mb-2">500+</div>
+<p class="text-white text-opacity-80">Учебных групп</p>
+</div>
+<div class="text-center">
+<div class="text-4xl md:text-5xl font-bold mb-2">78%</div>
+<p class="text-white text-opacity-80">Трудоустройство</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Отзывы -->
+<section class="py-20">
+<div class="container mx-auto px-6">
+<h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Отзывы наших пользователей</h2>
+<p class="text-gray-600 text-center max-w-2xl mx-auto mb-16">Что говорят те, кто уже изучает C# с нами</p>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="bg-[#21262D] p-8 rounded-lg border border-[#30363D] hover:border-primary/50 transition-all">
+<div class="flex items-center mb-4">
+<div class="text-yellow-400 flex">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+</div>
+<p class="text-gray-600 mb-6">"Благодаря SharpRise я смог быстро освоить C# и найти работу в IT-компании. Групповой формат обучения очень мотивирует!"</p>
+<div class="flex items-center">
+<div class="w-10 h-10 flex items-center justify-center bg-primary text-white rounded-full mr-3">
+<span class="font-medium">АК</span>
+</div>
+<div>
+<h4 class="font-medium">Алексей Кузнецов</h4>
+<p class="text-sm text-gray-500">Junior C# Developer</p>
+</div>
+</div>
+</div>
+<div class="bg-[#21262D] p-8 rounded-lg border border-[#30363D] hover:border-primary/50 transition-all">
+<div class="flex items-center mb-4">
+<div class="text-yellow-400 flex">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+</div>
+<p class="text-gray-600 mb-6">"Задачи в стиле CodeWars действительно помогают лучше понять язык. Очень нравится система рейтингов и соревновательный элемент."</p>
+<div class="flex items-center">
+<div class="w-10 h-10 flex items-center justify-center bg-primary text-white rounded-full mr-3">
+<span class="font-medium">ЕС</span>
+</div>
+<div>
+<h4 class="font-medium">Екатерина Смирнова</h4>
+<p class="text-sm text-gray-500">Middle .NET Developer</p>
+</div>
+</div>
+</div>
+<div class="bg-[#21262D] p-8 rounded-lg border border-[#30363D] hover:border-primary/50 transition-all">
+<div class="flex items-center mb-4">
+<div class="text-yellow-400 flex">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-half-fill"></i>
+</div>
+</div>
+<p class="text-gray-600 mb-6">"Отличная платформа для тех, кто хочет изучать C# с нуля. Материалы структурированы, есть возможность общаться с опытными разработчиками."</p>
+<div class="flex items-center">
+<div class="w-10 h-10 flex items-center justify-center bg-primary text-white rounded-full mr-3">
+<span class="font-medium">ДП</span>
+</div>
+<div>
+<h4 class="font-medium">Дмитрий Петров</h4>
+<p class="text-sm text-gray-500">Студент</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Призыв к действию -->
+<section class="py-20 bg-[#161B22]">
+<div class="container mx-auto px-6 text-center">
+<h2 class="text-3xl md:text-4xl font-bold mb-6">Присоединяйтесь к сообществу C# разработчиков</h2>
+<p class="text-gray-600 max-w-2xl mx-auto mb-8">Начните свой путь в программировании уже сегодня. Первые 14 дней бесплатно!</p>
+<button class="bg-primary text-white px-8 py-3 !rounded-button whitespace-nowrap font-medium hover:bg-opacity-90 transition-all mx-auto">Начать бесплатно</button>
+</div>
+</section>
