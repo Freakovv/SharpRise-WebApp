@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using SharpRise_WebApp.Models;
+using SharpRise_WebApp.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<SharpRiseContext>(options =>

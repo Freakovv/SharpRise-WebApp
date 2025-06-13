@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SharpRise_WebApp.Models;
 
-namespace SharpRise_WebApp.Models;
+namespace SharpRise_WebApp.Data;
 
 public partial class SharpRiseContext : DbContext
 {
