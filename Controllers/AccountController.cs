@@ -30,75 +30,138 @@ namespace SharpRise_WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginModel model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                // Поиск пользователя по email или username
-                IUser user = _context.Teachers.FirstOrDefault(u => u.Email == model.UsernameOrEmail || u.Username == model.UsernameOrEmail)
-                            ?? (IUser)_context.Students.FirstOrDefault(u => u.Email == model.UsernameOrEmail || u.Username == model.UsernameOrEmail);
-                if (user != null && VerifyPassword(model.Password, user.Password))
-                {
-                    await Authenticate(user);
-                    return Json(new { success = true });
-                }
-
-                ModelState.AddModelError(string.Empty, "Неверный email/имя пользователя или пароль");
+                var errors = ModelState.ToDictionary(
+                    kvp => kvp.Key,
+                    kvp => kvp.Value.Errors.Select(e => e.ErrorMessage).ToArray()
+                );
+                return Json(new { success = false, errors });
             }
 
-            return PartialView("_LoginModal", model);
+            var user = _context.Teachers.FirstOrDefault(u => u.Email == model.UsernameOrEmail || u.Username == model.UsernameOrEmail)
+                    ?? (IUser)_context.Students.FirstOrDefault(u => u.Email == model.UsernameOrEmail || u.Username == model.UsernameOrEmail);
+
+            if (user == null || !VerifyPassword(model.Password, user.Password))
+            {
+                return Json(new
+                {
+                    success = false,
+                    errors = new Dictionary<string, string[]> {
+                { "", new[] { "Неверный email/имя пользователя или пароль" } }
+            }
+                });
+            }
+
+            await Authenticate(user, model.RememberMe);
+            return Json(new { success = true });
         }
 
+        private async Task Authenticate(IUser user, bool rememberMe)
+        {
+            var claims = new List<Claim>
+    {
+        new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+        new Claim(ClaimTypes.Name, user.Username),
+        new Claim(ClaimTypes.Email, user.Email),
+        new Claim(ClaimTypes.Role, user is Teacher ? "Teacher" : "Student")
+    };
+
+            var authProperties = new AuthenticationProperties
+            {
+                IsPersistent = rememberMe,
+                ExpiresUtc = rememberMe ? DateTimeOffset.UtcNow.AddDays(30) : null
+            };
+
+            var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            await HttpContext.SignInAsync(
+                CookieAuthenticationDefaults.AuthenticationScheme,
+                new ClaimsPrincipal(identity),
+                authProperties);
+        }
         [HttpGet]
         public IActionResult Register()
         {
             return PartialView("_RegisterModal");
         }
 
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Register(RegisterModel model, string userRole)
-    {
-        if (ModelState.IsValid)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Register(RegisterModel model, string userRole)
         {
+            if (!ModelState.IsValid)
+            {
+                var errors = ModelState.ToDictionary(
+                    kvp => kvp.Key,
+                    kvp => kvp.Value.Errors.Select(e => e.ErrorMessage).ToArray()
+                );
+                return Json(new { success = false, errors });
+            }
+
+            if (!model.TermsAgree)
+            {
+                return Json(new
+                {
+                    success = false,
+                    errors = new { TermsAgree = new[] { "Необходимо принять условия использования" } }
+                });
+            }
+
             // Проверка на существование пользователя
             if (_context.Teachers.Any(u => u.Email == model.Email) || _context.Students.Any(u => u.Email == model.Email))
             {
-                ModelState.AddModelError("Email", "Пользователь с таким email уже существует");
-                return PartialView("_RegisterModal", model);
+                return Json(new
+                {
+                    success = false,
+                    errors = new { Email = new[] { "Пользователь с таким email уже существует" } }
+                });
             }
 
             if (_context.Teachers.Any(u => u.Username == model.Username) || _context.Students.Any(u => u.Username == model.Username))
             {
-                ModelState.AddModelError("Username", "Пользователь с таким именем уже существует");
-                return PartialView("_RegisterModal", model);
+                return Json(new
+                {
+                    success = false,
+                    errors = new { Username = new[] { "Пользователь с таким именем уже существует" } }
+                });
             }
 
-            if (userRole == "Teacher")
+            try
             {
-                var teacher = new Teacher
+                if (userRole == "Teacher")
                 {
-                    Username = model.Username,
-                    Email = model.Email,
-                    Password = HashPassword(model.Password)
-                };
-                _context.Teachers.Add(teacher);
-            }
-            else
-            {
-                var student = new Student
+                    var teacher = new Teacher
+                    {
+                        Username = model.Username,
+                        Email = model.Email,
+                        Password = HashPassword(model.Password)
+                    };
+                    _context.Teachers.Add(teacher);
+                }
+                else
                 {
-                    Username = model.Username,
-                    Email = model.Email,
-                    Password = HashPassword(model.Password)
-                };
-                _context.Students.Add(student);
-            }
+                    var student = new Student
+                    {
+                        Username = model.Username,
+                        Email = model.Email,
+                        Password = HashPassword(model.Password)
+                    };
+                    _context.Students.Add(student);
+                }
 
-            await _context.SaveChangesAsync();
-            return Json(new { success = true });
+                await _context.SaveChangesAsync();
+                return Json(new { success = true });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Ошибка при регистрации");
+                return Json(new
+                {
+                    success = false,
+                    errors = new { General = new[] { "Произошла ошибка при регистрации" } }
+                });
+            }
         }
-
-        return PartialView("_RegisterModal", model);
-    }
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
