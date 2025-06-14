@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using SharpRise_WebApp.Controllers;
 
 namespace SharpRise_WebApp.Models;
 
-public partial class Teacher
+public partial class Teacher : IUser
 {
     public int Id { get; set; }
 

@@ -1,0 +1,144 @@
+<!-- Модальное окно регистрации -->
+<link rel="stylesheet" href="~/css/Login.css">
+<div id="registerModal" class="fixed inset-0 z-50 hidden">
+    <div class="modal-overlay absolute inset-0"></div>
+    <div class="flex items-center justify-center min-h-screen p-4">
+        <div class="modal relative w-full max-w-md rounded-lg p-6 shadow-xl">
+            <button class="absolute top-4 right-4 text-gray-400 hover:text-white" id="closeRegisterModal">
+                <div class="w-6 h-6 flex items-center justify-center">
+                    <i class="ri-close-line ri-lg"></i>
+                </div>
+            </button>
+            <h2 class="text-2xl font-bold mb-6">Регистрация</h2>
+                    <form asp-action="Register" asp-controller="Account" method="post" id="registerForm">
+    @Html.AntiForgeryToken()
+                    <div class="mb-4">
+                    <label class="block text-sm text-gray-400 mb-2">Выберите роль</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <div class="w-5 h-5 flex items-center justify-center text-gray-400">
+                                <i class="ri-user-star-line"></i>
+                            </div>
+                        </div>
+                        <select id="userRole" class="w-full bg-gray-800 border-none rounded py-2 pl-10 pr-3 text-white focus:ring-2 focus:ring-primary focus:outline-none appearance-none">
+                            <option value="Student">Ученик</option>
+                            <option value="Teacher">Учитель</option>
+                        </select>
+                        <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                            <i class="ri-arrow-down-s-line text-gray-400"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-sm text-gray-400 mb-2">Email</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <div class="w-5 h-5 flex items-center justify-center text-gray-400">
+                                <i class="ri-mail-line"></i>
+                            </div>
+                        </div>
+                        <input type="email" class="w-full bg-gray-800 border-none rounded py-2 pl-10 pr-3 text-white focus:ring-2 focus:ring-primary focus:outline-none" placeholder="Введите email">
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <label class="block text-sm text-gray-400 mb-2">Имя пользователя</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <div class="w-5 h-5 flex items-center justify-center text-gray-400">
+                                <i class="ri-user-line"></i>
+                            </div>
+                        </div>
+                        <input type="text" class="w-full bg-gray-800 border-none rounded py-2 pl-10 pr-3 text-white focus:ring-2 focus:ring-primary focus:outline-none" placeholder="Введите имя пользователя">
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <label class="block text-sm text-gray-400 mb-2">Пароль</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <div class="w-5 h-5 flex items-center justify-center text-gray-400">
+                                <i class="ri-lock-line"></i>
+                            </div>
+                        </div>
+                        <input type="password" id="registerPassword" class="w-full bg-gray-800 border-none rounded py-2 pl-10 pr-10 text-white focus:ring-2 focus:ring-primary focus:outline-none" placeholder="Введите пароль">
+                        <button type="button" id="toggleRegisterPassword" class="absolute inset-y-0 right-0 pr-3 flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center text-gray-400">
+                                <i class="ri-eye-off-line"></i>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="mt-2">
+                        <div class="w-full h-1 bg-gray-800 rounded-full overflow-hidden">
+                            <div id="passwordStrength" class="h-full bg-red-500 w-0 transition-all duration-300"></div>
+                        </div>
+                        <p id="passwordStrengthText" class="text-xs text-gray-400 mt-1">Минимум 8 символов</p>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <label class="block text-sm text-gray-400 mb-2">Подтверждение пароля</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <div class="w-5 h-5 flex items-center justify-center text-gray-400">
+                                <i class="ri-lock-line"></i>
+                            </div>
+                        </div>
+                        <input type="password" id="confirmPassword" class="w-full bg-gray-800 border-none rounded py-2 pl-10 pr-3 text-white focus:ring-2 focus:ring-primary focus:outline-none" placeholder="Повторите пароль">
+                    </div>
+                </div>
+                
+                <div class="flex items-center mb-6">
+                    <div class="relative flex items-center">
+                        <input type="checkbox" id="termsAgree" class="w-4 h-4 bg-gray-800 rounded border-gray-600 focus:ring-primary">
+                        <div class="absolute w-4 h-4 bg-gray-800 rounded border border-gray-600 flex items-center justify-center" id="termsCustomCheckbox">
+                            <div class="w-2 h-2 bg-primary rounded-sm hidden" id="termsCheckboxIndicator"></div>
+                        </div>
+                        <label for="termsAgree" class="ml-2 text-sm text-gray-400 cursor-pointer">Я согласен с <a href="#" id="termsLink" class="text-primary hover:text-opacity-80">условиями использования</a></label>
+                    </div>
+                </div>
+                
+                <button type="submit" class="w-full bg-primary hover:bg-opacity-90 text-white py-2 px-4 rounded-button transition-colors !rounded-button whitespace-nowrap">Зарегистрироваться</button>
+                
+                <div class="flex items-center my-6">
+                    <div class="flex-grow h-px bg-gray-700"></div>
+                    <span class="px-4 text-sm text-gray-400">или</span>
+                    <div class="flex-grow h-px bg-gray-700"></div>
+                </div>
+                
+                <button type="button" id="switchToLogin" class="w-full text-center text-primary hover:text-opacity-80">Уже есть аккаунт? Войти</button>
+            </form>
+        </div>
+    </div>
+</div>        <!-- Модальное окно условий использования -->
+        <div id="termsModal" class="fixed inset-0 z-50 hidden">
+            <div class="modal-overlay absolute inset-0"></div>
+            <div class="flex items-center justify-center min-h-screen p-4">
+                    <div class="modal relative w-full max-w-2xl rounded-lg p-6 shadow-xl">
+                        <button class="absolute top-4 right-4 text-gray-400 hover:text-white" id="closeTermsModal">
+                        <div class="w-6 h-6 flex items-center justify-center">
+                        <i class="ri-close-line ri-lg"></i>
+                </div>
+                </button>
+                <h2 class="text-2xl font-bold mb-6">Условия использования</h2>
+            <div class="prose prose-invert max-h-[60vh] overflow-y-auto mb-6 text-gray-300">
+                <h3 class="text-xl font-semibold mb-4">1. Общие положения</h3>
+                <p class="mb-4">Настоящие Условия использования регулируют отношения между SharpRise (далее - "Сервис") и пользователем сервиса (далее - "Пользователь").</p>
+                <h3 class="text-xl font-semibold mb-4">2. Регистрация и использование</h3>
+                <p class="mb-4">2.1. Для использования Сервиса Пользователь должен зарегистрироваться, предоставив достоверную информацию.</p>
+                <p class="mb-4">2.2. Пользователь несет ответственность за сохранность своих учетных данных.</p>
+                <h3 class="text-xl font-semibold mb-4">3. Правила поведения</h3>
+                <p class="mb-4">3.1. Пользователь обязуется не нарушать работу Сервиса.</p>
+                <p class="mb-4">3.2. Запрещено размещение материалов, нарушающих авторские права.</p>
+                <h3 class="text-xl font-semibold mb-4">4. Конфиденциальность</h3>
+                <p class="mb-4">4.1. Сервис обязуется сохранять конфиденциальность личных данных Пользователя.</p>
+                <p class="mb-4">4.2. Пользователь соглашается на обработку персональных данных.</p>
+                <h3 class="text-xl font-semibold mb-4">5. Ограничение ответственности</h3>
+                <p class="mb-4">5.1. Сервис предоставляется "как есть", без каких-либо гарантий.</p>
+                <p class="mb-4">5.2. Сервис не несет ответственности за любые убытки Пользователя.</p>
+            </div>
+            <button id="closeTermsBtn" class="w-full bg-primary hover:bg-opacity-90 text-white py-2 px-4 rounded-button transition-colors !rounded-button whitespace-nowrap">Закрыть</button>
+        </div>
+    </div>
+</div>

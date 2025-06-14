@@ -45,3 +45,16 @@ input[type="password"]::-ms-clear {
 .modal.hiding {
   animation: modalFadeIn 0.3s ease-out reverse forwards;
 }
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-repeat: no-repeat;
+  background-position: right 0.7rem center;
+  background-size: 1.5em;
+}
+
+select:focus {
+  outline: none;
+}

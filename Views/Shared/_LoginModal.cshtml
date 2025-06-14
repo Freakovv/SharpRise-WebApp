@@ -1,0 +1,62 @@
+<!-- Модальное окно входа -->
+<link rel="stylesheet" href="~/css/Login.css">
+<div id="loginModal" class="fixed inset-0 z-50 hidden">
+<div class="modal-overlay absolute inset-0"></div>
+<div class="flex items-center justify-center min-h-screen p-4">
+<div class="modal relative w-full max-w-md rounded-lg p-6 shadow-xl">
+<button class="absolute top-4 right-4 text-gray-400 hover:text-white" id="closeLoginModal">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-close-line ri-lg"></i>
+</div>
+</button>
+<h2 class="text-2xl font-bold mb-6">Войти</h2>
+<form asp-action="Login" asp-controller="Account" method="post" id="loginForm">
+@Html.AntiForgeryToken()
+<div class="mb-4">
+<label class="block text-sm text-gray-400 mb-2">Email или имя пользователя</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<div class="w-5 h-5 flex items-center justify-center text-gray-400">
+<i class="ri-user-line"></i>
+</div>
+</div>
+<input type="text" class="w-full bg-gray-800 border-none rounded py-2 pl-10 pr-3 text-white focus:ring-2 focus:ring-primary focus:outline-none" placeholder="Введите email или имя пользователя">
+</div>
+</div>
+<div class="mb-4">
+<label class="block text-sm text-gray-400 mb-2">Пароль</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<div class="w-5 h-5 flex items-center justify-center text-gray-400">
+<i class="ri-lock-line"></i>
+</div>
+</div>
+<input type="password" id="loginPassword" class="w-full bg-gray-800 border-none rounded py-2 pl-10 pr-10 text-white focus:ring-2 focus:ring-primary focus:outline-none" placeholder="Введите пароль">
+<button type="button" id="toggleLoginPassword" class="absolute inset-y-0 right-0 pr-3 flex items-center">
+<div class="w-5 h-5 flex items-center justify-center text-gray-400">
+<i class="ri-eye-off-line"></i>
+</div>
+</button>
+</div>
+</div>
+<div class="flex items-center mb-6">
+<div class="relative flex items-center">
+<input type="checkbox" id="rememberMe" class="w-4 h-4 bg-gray-800 rounded border-gray-600 focus:ring-primary">
+<div class="absolute w-4 h-4 bg-gray-800 rounded border border-gray-600 flex items-center justify-center" id="customCheckbox">
+<div class="w-2 h-2 bg-primary rounded-sm hidden" id="checkboxIndicator"></div>
+</div>
+<label for="rememberMe" class="ml-2 text-sm text-gray-400 cursor-pointer">Запомнить меня</label>
+</div>
+<a href="#" class="ml-auto text-sm text-primary hover:text-opacity-80">Забыли пароль?</a>
+</div>
+<button type="submit" class="w-full bg-primary hover:bg-opacity-90 text-white py-2 px-4 rounded-button transition-colors !rounded-button whitespace-nowrap">Войти</button>
+<div class="flex items-center my-6">
+<div class="flex-grow h-px bg-gray-700"></div>
+<span class="px-4 text-sm text-gray-400">или</span>
+<div class="flex-grow h-px bg-gray-700"></div>
+</div>
+<button type="button" id="switchToRegister" class="w-full text-center text-primary hover:text-opacity-80">Зарегистрироваться</button>
+</form>
+</div>
+</div>
+</div>
