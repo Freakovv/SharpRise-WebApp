@@ -1,5 +1,6 @@
 <!-- Модальное окно регистрации -->
 <link rel="stylesheet" href="~/css/Login.css">
+<!-- Скрипт для регистрации -->
 <div id="registerModal" class="fixed inset-0 z-50 hidden">
     <div class="modal-overlay absolute inset-0"></div>
     <div class="flex items-center justify-center min-h-screen p-4">
@@ -38,7 +39,7 @@
                                 <i class="ri-mail-line"></i>
                             </div>
                         </div>
-                        <input type="email" class="w-full bg-gray-800 border-none rounded py-2 pl-10 pr-3 text-white focus:ring-2 focus:ring-primary focus:outline-none" placeholder="Введите email">
+                        <input type="email" class="w-full bg-gray-800 border-none rounded py-2 pl-10 pr-3 text-white focus:ring-2 focus:ring-primary focus:outline-none" placeholder="Введите email" name="Email">
                     </div>
                 </div>
                 
@@ -50,7 +51,7 @@
                                 <i class="ri-user-line"></i>
                             </div>
                         </div>
-                        <input type="text" class="w-full bg-gray-800 border-none rounded py-2 pl-10 pr-3 text-white focus:ring-2 focus:ring-primary focus:outline-none" placeholder="Введите имя пользователя">
+                        <input type="text" class="w-full bg-gray-800 border-none rounded py-2 pl-10 pr-3 text-white focus:ring-2 focus:ring-primary focus:outline-none" placeholder="Введите имя пользователя" name="Username">
                     </div>
                 </div>
                 
@@ -62,7 +63,7 @@
                                 <i class="ri-lock-line"></i>
                             </div>
                         </div>
-                        <input type="password" id="registerPassword" class="w-full bg-gray-800 border-none rounded py-2 pl-10 pr-10 text-white focus:ring-2 focus:ring-primary focus:outline-none" placeholder="Введите пароль">
+                        <input type="password" id="registerPassword" class="w-full bg-gray-800 border-none rounded py-2 pl-10 pr-10 text-white focus:ring-2 focus:ring-primary focus:outline-none" placeholder="Введите пароль" name="Password">
                         <button type="button" id="toggleRegisterPassword" class="absolute inset-y-0 right-0 pr-3 flex items-center">
                             <div class="w-5 h-5 flex items-center justify-center text-gray-400">
                                 <i class="ri-eye-off-line"></i>
@@ -85,19 +86,22 @@
                                 <i class="ri-lock-line"></i>
                             </div>
                         </div>
-                        <input type="password" id="confirmPassword" class="w-full bg-gray-800 border-none rounded py-2 pl-10 pr-3 text-white focus:ring-2 focus:ring-primary focus:outline-none" placeholder="Повторите пароль">
+                        <input type="password" id="confirmPassword" name="ConfirmPassword" class="w-full bg-gray-800 border-none rounded py-2 pl-10 pr-3 text-white focus:ring-2 focus:ring-primary focus:outline-none" placeholder="Повторите пароль">
                     </div>
                 </div>
                 
-                <div class="flex items-center mb-6">
-                    <div class="relative flex items-center">
-                        <input type="checkbox" id="termsAgree" class="w-4 h-4 bg-gray-800 rounded border-gray-600 focus:ring-primary">
-                        <div class="absolute w-4 h-4 bg-gray-800 rounded border border-gray-600 flex items-center justify-center" id="termsCustomCheckbox">
-                            <div class="w-2 h-2 bg-primary rounded-sm hidden" id="termsCheckboxIndicator"></div>
-                        </div>
-                        <label for="termsAgree" class="ml-2 text-sm text-gray-400 cursor-pointer">Я согласен с <a href="#" id="termsLink" class="text-primary hover:text-opacity-80">условиями использования</a></label>
+            <div class="flex items-center mb-6">
+                <div class="relative flex items-center">
+                    <input type="checkbox" name="TermsAgree" id="termsAgree" value="true" class="hidden">
+                    <div class="w-4 h-4 bg-gray-800 rounded border border-gray-600 flex items-center justify-center cursor-pointer" id="termsCustomCheckbox">
+                        <div class="w-2 h-2 bg-primary rounded-sm hidden" id="termsCheckboxIndicator"></div>
                     </div>
+                    <label for="termsAgree" class="ml-2 text-sm text-gray-400 cursor-pointer">
+                        Я согласен с <a href="#" id="termsLink" class="text-primary hover:text-opacity-80">условиями использования</a>
+                    </label>
                 </div>
+                <span class="error-message text-red-500 text-xs ml-2" data-valmsg-for="TermsAgree" data-valmsg-replace="true"></span>
+            </div>
                 
                 <button type="submit" class="w-full bg-primary hover:bg-opacity-90 text-white py-2 px-4 rounded-button transition-colors !rounded-button whitespace-nowrap">Зарегистрироваться</button>
                 
@@ -109,6 +113,7 @@
                 
                 <button type="button" id="switchToLogin" class="w-full text-center text-primary hover:text-opacity-80">Уже есть аккаунт? Войти</button>
             </form>
+            <script src="~/js/Login/regHandler.js"></script>
         </div>
     </div>
 </div>        <!-- Модальное окно условий использования -->
