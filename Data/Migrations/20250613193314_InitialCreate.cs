@@ -3,10 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace SharpRise_WebApp.Migrations
+namespace SharpRise_WebApp.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class DeleteOnCascade : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
