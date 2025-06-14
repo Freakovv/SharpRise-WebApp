@@ -58,3 +58,38 @@ select {
 select:focus {
   outline: none;
 }
+
+.border-red-500 {
+  border-color: #ef4444;
+}
+
+.text-red-500 {
+  color: #ef4444;
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#notification {
+  transition: all 0.3s ease;
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+#notification.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+.border-primary {
+  border-color: #6366f1;
+}
