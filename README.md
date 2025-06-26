@@ -1,3 +1,6 @@
+## The repository was created to demonstrate skills in using Git for teamwork, breaking down large tasks into smaller subtasks, and handling pull requests (note: PR descriptions are not very detailed).
+## Contact: [@sskkywalker](https://t.me/sskkywalker)
+
 **Description:**
 
 **Want to learn C# but don’t know where to start?**
@@ -8,4 +11,4 @@ Create study groups, invite students, prepare materials, and take full advantage
 
 *The application is developed on ASP.NET technology for coursework and will not be supported further.*
 
-Contact: [@sskkyywalker](https://t.me/sskkywalker)
+
